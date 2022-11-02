@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import HeaderBase, { NavLinks, NavLink, PrimaryLink } from "components/headers/light.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
@@ -47,7 +46,7 @@ export default ({
   features = ["Available in 7 Locations", "Premium Internet Backbone", "99.99% Uptime SLA"],
   testimonial = {
     quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    customerName: "Charlotte Hale",
+    customerName: "Alex Axel M.",
     customerCompany: "Delos Inc."
   }
 }) => {
@@ -55,10 +54,10 @@ export default ({
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
       <NavLink href="/#">Testimonials</NavLink>
+      <NavLink href="/#">About Us</NavLink>
+      <NavLink href="/#">Mentors</NavLink>
+      <NavLink href="/#">News</NavLink>
     </NavLinks>,
     <NavLinks key={2}>
       <NavLink href="/#" tw="lg:ml-12!">
@@ -67,6 +66,11 @@ export default ({
       <PrimaryLink css={buttonRoundedCss} href="/#">
         Sign Up
       </PrimaryLink>
+      <NavLink href="/#" tw="lg:ml-12!">
+       <PrimaryLink css={buttonRoundedCss} href="/#">
+        Donate
+      </PrimaryLink>
+      </NavLink>
     </NavLinks>
   ];
   return (

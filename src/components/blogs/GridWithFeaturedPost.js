@@ -72,7 +72,7 @@ export default ({
       title: "Enjoying the beach life while on a vacation",
       description:
         "Lorem ipsum dolor sit amet, consecteturious adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua now ele.",
-      authorName: "Adam Cuppy",
+      authorName: "Yannick M.",
       authorProfile: "Vlogger",
       url: "https://reddit.com",
       featured: true
@@ -102,7 +102,7 @@ export default ({
       postImageSrc:
         "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
       title: "Must carry items while travelling to Thailand",
-      authorName: "Himali Turn",
+      authorName: "Mugisha Y.",
       url: "https://timerse.com"
     }
   ]
