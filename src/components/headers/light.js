@@ -72,14 +72,18 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    */
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
+      <NavLink href="/#"></NavLink>
+      <NavLink href="/#">About Us</NavLink>
+      <NavLink href="/#">Mentors</NavLink>
+      <NavLink href="/#">News</NavLink>
+      <NavLink href="/#">News</NavLink>
       <NavLink href="/#" tw="lg:ml-12!">
         Login
       </NavLink>
       <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink>
+      <NavLink href="/#" tw="lg:ml-12!">
+        Donate
+      </NavLink>
     </NavLinks>
   ];
 
@@ -89,7 +93,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      Treact
+      Ubuhanga
     </LogoLink>
   );
 
