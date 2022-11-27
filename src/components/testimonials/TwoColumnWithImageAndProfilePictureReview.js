@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading, Subheading as SubheadingBase } from "../misc/Headings.js";
-import { PrimaryButton } from "../misc/Buttons.js";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  useDisclosure,
+} from "@chakra-ui/react";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from "../misc/Headings.js";
+import { PrimaryButton, PlayButton } from "../misc/Buttons.js";
 import { ReactComponent as QuotesLeftIcon } from "../../images/quotes-l.svg";
 import { ReactComponent as QuotesRightIcon } from "../../images/quotes-r.svg";
 import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chevron-left.svg";
@@ -24,11 +33,21 @@ const TestimonialImageSlider = tw(Slider)`w-full lg:w-5/12 flex-shrink-0 `;
 const TestimonialTextSlider = tw(Slider)``;
 const TestimonialText = tw.div`outline-none`;
 
-const ImageAndControlContainer = tw.div`relative outline-none`;
-const Image = styled.div(props => [
+const ImageAndControlContainer = tw.div`relative outline-none w-full`;
+
+const TestimonialsImage = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-cover bg-center h-80 sm:h-96 lg:h-144`
+  tw`rounded bg-cover bg-center h-80 sm:h-96 lg:h-144`,
 ]);
+
+const PlayButtonControlContainer = tw.div`absolute top-0 left-0 translate-x-[235.5px] translate-y-[261px]`;
+
+const PlayButtonControlButton = styled(PlayButton)`
+  ${tw`rounded-full text-gray-100 p-2`}
+  svg {
+    ${tw`w-5 h-5`}
+  }
+`;
 
 const ControlContainer = tw.div`absolute bottom-0 right-0 bg-gray-100 px-6 py-4 rounded-tl-3xl border`;
 const ControlButton = styled(PrimaryButton)`
@@ -38,9 +57,9 @@ const ControlButton = styled(PrimaryButton)`
   }
 `;
 
-const TextContainer = styled.div(props => [
+const TextContainer = styled.div((props) => [
   tw`flex flex-col w-full lg:w-7/12`,
-  props.textOnLeft ? tw`lg:pr-12 lg:order-first` : tw`lg:pl-12 lg:order-last`
+  props.textOnLeft ? tw`lg:pr-12 lg:order-first` : tw`lg:pl-12 lg:order-last`,
 ]);
 
 const Subheading = tw(SubheadingBase)`mb-4`;
@@ -55,8 +74,12 @@ const CustomerTextInfo = tw.div`text-center lg:text-left sm:ml-6 mt-2 sm:mt-0`;
 const CustomerName = tw.h5`font-semibold text-xl lg:text-2xl xl:text-3xl text-primary-500`;
 const CustomerTitle = tw.p`font-medium text-secondary-100`;
 
-const QuotesLeft = tw(QuotesLeftIcon)`w-6 h-6 opacity-75 text-primary-500 inline-block mr-1 -mt-3`;
-const QuotesRight = tw(QuotesRightIcon)`w-6 h-6 opacity-75 text-primary-500 inline-block ml-1 -mt-3`;
+const QuotesLeft = tw(
+  QuotesLeftIcon
+)`w-6 h-6 opacity-75 text-primary-500 inline-block mr-1 -mt-3`;
+const QuotesRight = tw(
+  QuotesRightIcon
+)`w-6 h-6 opacity-75 text-primary-500 inline-block ml-1 -mt-3`;
 
 const DecoratorBlob1 = tw(
   SvgDecoratorBlob1
@@ -70,12 +93,13 @@ export default ({
   heading = "Testimonials",
   description = "Here are what some of our amazing customers are saying about our hotels & tours. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   testimonials = null,
-  textOnLeft = false
+  textOnLeft = false,
 }) => {
   /*
    * You can modify the testimonials shown by modifying the array below or passing in the testimonials prop above
    * You can add or remove objects from the array as you need.
    */
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const defaultTestimonials = [
     {
       imageSrc:
@@ -85,7 +109,7 @@ export default ({
       quote:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
       customerName: "Alex Axel M.",
-      customerTitle: "CEO, Delos Inc."
+      customerTitle: "CEO, Delos Inc.",
     },
     {
       imageSrc:
@@ -95,11 +119,12 @@ export default ({
       quote:
         "Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
       customerName: "Yannick M.",
-      customerTitle: "Founder, EventsNYC"
-    }
+      customerTitle: "Founder, EventsNYC",
+    },
   ];
 
-  if (!testimonials || testimonials.length === 0) testimonials = defaultTestimonials;
+  if (!testimonials || testimonials.length === 0)
+    testimonials = defaultTestimonials;
 
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [imageSliderRef, setImageSliderRef] = useState(null);
@@ -108,14 +133,35 @@ export default ({
   return (
     <Container>
       <Content>
-        <HeadingInfo tw="text-center lg:hidden" subheading={subheading} heading={heading} description={description} />
+        <HeadingInfo
+          tw="text-center lg:hidden"
+          subheading={subheading}
+          heading={heading}
+          description={description}
+        />
         <TestimonialsContainer>
           <Testimonials>
             <Testimonial>
-              <TestimonialImageSlider arrows={false} ref={setImageSliderRef} asNavFor={textSliderRef} fade={true}>
+              <TestimonialImageSlider
+                arrows={false}
+                ref={setImageSliderRef}
+                asNavFor={textSliderRef}
+                fade={true}
+                autoplay={true}
+                speed={1000}
+                infinite={true}
+                lazyLoad={true}
+              >
                 {testimonials.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
-                    <Image imageSrc={testimonial.imageSrc} />
+                    <TestimonialsImage imageSrc={testimonial.imageSrc} onClick={onOpen}/>
+
+                    {/* <PlayButtonControlContainer>
+                      <PlayButtonControlButton >
+                        <ChevronLeftIcon />
+                      </PlayButtonControlButton>
+                    </PlayButtonControlContainer> */}
+
                     <ControlContainer>
                       <ControlButton onClick={imageSliderRef?.slickPrev}>
                         <ChevronLeftIcon />
@@ -124,12 +170,55 @@ export default ({
                         <ChevronRightIcon />
                       </ControlButton>
                     </ControlContainer>
+                    <Modal
+                      isCentered
+                      onClose={onClose}
+                      isOpen={isOpen}
+                      motionPreset="slideInBottom"
+                      size={"3xl"}
+                    >
+                      <ModalOverlay />
+                      <ModalContent>
+                        {/* <ModalHeader paddingY={1}>
+                          <span className="text-primary">
+                            Alex Axel Testimony
+                          </span>
+                          <ModalCloseButton />
+                        </ModalHeader> */}
+                        <ModalBody padding={0} background={"transparent"}>
+                          <iframe
+                            width="100%"
+                            height="400px"
+                            src="https://www.youtube.com/embed/moA7gPYPrWI"
+                            title="Relax Your Mind | Relaxing Music for Stress Relief, Stop Overthinking"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                          ></iframe>
+                        </ModalBody>
+                        {/* <ModalFooter>
+                          <Button colorScheme="blue" mr={1} onClick={onClose}>
+                            Close
+                          </Button>
+                        </ModalFooter> */}
+                      </ModalContent>
+                    </Modal>
                   </ImageAndControlContainer>
                 ))}
               </TestimonialImageSlider>
               <TextContainer textOnLeft={textOnLeft}>
-                <HeadingInfo tw="hidden lg:block" subheading={subheading} heading={heading} description={description} />
-                <TestimonialTextSlider arrows={false} ref={setTextSliderRef} asNavFor={imageSliderRef} fade={true}>
+                <HeadingInfo
+                  tw="hidden lg:block"
+                  subheading={subheading}
+                  heading={heading}
+                  description={description}
+                />
+                <TestimonialTextSlider
+                  arrows={false}
+                  ref={setTextSliderRef}
+                  asNavFor={imageSliderRef}
+                  fade={true}
+                >
                   {testimonials.map((testimonial, index) => (
                     <TestimonialText key={index}>
                       <QuoteContainer>
@@ -140,10 +229,17 @@ export default ({
                         </Quote>
                       </QuoteContainer>
                       <CustomerInfo>
-                        <CustomerProfilePicture src={testimonial.profileImageSrc} alt={testimonial.customerName} />
+                        <CustomerProfilePicture
+                          src={testimonial.profileImageSrc}
+                          alt={testimonial.customerName}
+                        />
                         <CustomerTextInfo>
-                          <CustomerName>{testimonial.customerName}</CustomerName>
-                          <CustomerTitle>{testimonial.customerTitle}</CustomerTitle>
+                          <CustomerName>
+                            {testimonial.customerName}
+                          </CustomerName>
+                          <CustomerTitle>
+                            {testimonial.customerTitle}
+                          </CustomerTitle>
                         </CustomerTextInfo>
                       </CustomerInfo>
                     </TestimonialText>

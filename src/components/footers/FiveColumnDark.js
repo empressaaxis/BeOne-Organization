@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
-import LogoImage from "images/logo-light.svg";
+import logo from 'images/demo/logo.jpeg'
 import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "images/youtube-icon.svg";
@@ -47,8 +47,7 @@ export default () => {
         <FiveColumns>
           <CompanyColumn>
             <LogoContainer>
-              <LogoImg src={LogoImage} />
-              <LogoText>Ubuhanga Inc.</LogoText>
+              <LogoText>BeOne Org.</LogoText>
             </LogoContainer>
             <CompanyAddress>
               123 Road, New Startup Building
