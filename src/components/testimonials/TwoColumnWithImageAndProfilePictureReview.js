@@ -13,7 +13,7 @@ import {
   SectionHeading,
   Subheading as SubheadingBase,
 } from "../misc/Headings.js";
-import { PrimaryButton, PlayButton } from "../misc/Buttons.js";
+import { PrimaryButton } from "../misc/Buttons.js";
 import { ReactComponent as QuotesLeftIcon } from "../../images/quotes-l.svg";
 import { ReactComponent as QuotesRightIcon } from "../../images/quotes-r.svg";
 import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chevron-left.svg";
@@ -40,14 +40,14 @@ const TestimonialsImage = styled.div((props) => [
   tw`rounded bg-cover bg-center h-80 sm:h-96 lg:h-144`,
 ]);
 
-const PlayButtonControlContainer = tw.div`absolute top-0 left-0 translate-x-[235.5px] translate-y-[261px]`;
+// const PlayButtonControlContainer = tw.div`absolute top-0 left-0 translate-x-[235.5px] translate-y-[261px]`;
 
-const PlayButtonControlButton = styled(PlayButton)`
-  ${tw`rounded-full text-gray-100 p-2`}
-  svg {
-    ${tw`w-5 h-5`}
-  }
-`;
+// const PlayButtonControlButton = styled(PlayButton)`
+//   ${tw`rounded-full text-gray-100 p-2`}
+//   svg {
+//     ${tw`w-5 h-5`}
+//   }
+// `;
 
 const ControlContainer = tw.div`absolute bottom-0 right-0 bg-gray-100 px-6 py-4 rounded-tl-3xl border`;
 const ControlButton = styled(PrimaryButton)`
