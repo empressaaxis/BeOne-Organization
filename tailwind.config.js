@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
@@ -21,16 +21,27 @@ module.exports = {
       black: "#000",
       white: "#fff",
 
+      // primary: {
+      //   100: "#a273ff",
+      //   200: "#935bff",
+      //   300: "#8344ff",
+      //   400: "#742cff",
+      //   500: "#6415FF",
+      //   600: "#5a13e6",
+      //   700: "#5011cc",
+      //   800: "#460fb3",
+      //   900: "#3c0d99",
+      // },
       primary: {
-        100: "#a273ff",
-        200: "#935bff",
-        300: "#8344ff",
-        400: "#742cff",
-        500: "#6415FF",
-        600: "#5a13e6",
-        700: "#5011cc",
-        800: "#460fb3",
-        900: "#3c0d99",
+        100: "#fffff0",
+        200: "#fefcbf",
+        300: "#faf089",
+        400: "#f6e05e",
+        500: "#ecc94b",
+        600: "#d69e2e",
+        700: "#b7791f",
+        800: "#975a16",
+        900: "#744210",
       },
 
       secondary: {
