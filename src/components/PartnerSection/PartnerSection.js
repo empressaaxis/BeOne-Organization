@@ -21,12 +21,12 @@ export default function PartnerSection({ subheading, heading }) {
           {subheading ? <Subheading>{subheading}</Subheading> : null}
         </ContentHeader>
         <LogoContainer>
-          <Logo>Logo Here</Logo>
-          <Logo>Logo Here</Logo>
-          <Logo>Logo Here</Logo>
-          <Logo>Logo Here</Logo>
-          <Logo>Logo Here</Logo>
-          <Logo>Logo Here</Logo>
+          <p>Partners Company</p>
+          <p>Partners Company</p>
+          <p>Partners Company</p>
+          <p>Partners Company</p>
+          <p>Partners Company</p>
+          <p>Partners Company</p>
         </LogoContainer>
       </Content>
     </Container>

@@ -7,8 +7,10 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
 import logo from "../../images/demo/logo.jpeg";
+import Scholarships from "../../images/customers-logo-strip.png"
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
+import Banner from "react-js-banner"
 
 const Header = tw.header`
   flex justify-between items-center
@@ -109,35 +111,27 @@ export default ({
   links = links || defaultLinks;
 
   return (
-    <Header className={className || "header-light"}>
+    <div className="flex flex-col w-full">
+      <Header className={className || "header-light"}>
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
         {links}
       </DesktopNavLinks>
 
-      <MobileNavLinksContainer
-        css={collapseBreakpointCss.mobileNavLinksContainer}
-      >
+      <MobileNavLinksContainer css={collapseBreakpointCss.mobileNavLinksContainer}>
         {logoLink}
-        <MobileNavLinks
-          initial={{ x: "150%", display: "none" }}
-          animate={animation}
-          css={collapseBreakpointCss.mobileNavLinks}
-        >
+        <MobileNavLinks initial={{ x: "150%", display: "none" }} animate={animation} css={collapseBreakpointCss.mobileNavLinks}>
           {links}
         </MobileNavLinks>
-        <NavToggle
-          onClick={toggleNavbar}
-          className={showNavLinks ? "open" : "closed"}
-        >
-          {showNavLinks ? (
-            <CloseIcon tw="w-6 h-6" />
-          ) : (
-            <MenuIcon tw="w-6 h-6" />
-          )}
+        <NavToggle onClick={toggleNavbar} className={showNavLinks ? "open" : "closed"}>
+          {showNavLinks ? <CloseIcon tw="w-6 h-6" /> : <MenuIcon tw="w-6 h-6" />}
         </NavToggle>
       </MobileNavLinksContainer>
     </Header>
+    <div className="w-[20%]">
+        <Banner title="Upcoming Scholarship" visibleTime={5000} transitionAppearTime={1} image={Scholarships} />
+    </div>
+    </div>
   );
 };
 
