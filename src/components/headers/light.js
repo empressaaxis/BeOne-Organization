@@ -84,9 +84,11 @@ export default ({
       <NavLink href="/#">News</NavLink>
       <NavLink href="/#">News</NavLink>
       <NavLink href="/#" tw="lg:ml-12!">
-        Sign Up
+        Login
       </NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Donate</PrimaryLink>
+      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">
+        Donate
+      </PrimaryLink>
       {/* <NavLink href="/#" tw="lg:ml-12!">
         Donate
       </NavLink> */}
@@ -98,9 +100,8 @@ export default ({
     collapseBreakPointCssMap[collapseBreakpointClass];
 
   const defaultLogoLink = (
-    <LogoLink href="/" >
-      <img src={logo} alt="logo"/>
-      Be One Organisation
+    <LogoLink href="/">
+      <img src={logo} alt="logo" />
     </LogoLink>
   );
 
