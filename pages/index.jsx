@@ -1,14 +1,14 @@
 import React from "react";
 import tw from "twin.macro";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import AnimationRevealPage from "@helpers/AnimationRevealPage";
 
-import Hero from "components/hero/TwoColumnWithFeaturesAndTestimonial.js";
-import Features from "components/features/ThreeColWithSideImage.js";
-import Blog from "components/blogs/GridWithFeaturedPost.js";
-import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePictureReview.js";
-import Footer from "components/footers/FiveColumnDark.js";
-import TeamCardGrid from "components/cards/ProfileThreeColGrid.js";
-import PartnerSection from "components/PartnerSection/PartnerSection";
+import Hero from "@components/hero/TwoColumnWithFeaturesAndTestimonial";
+import Features from "@components/features/ThreeColWithSideImage";
+import Blog from "@components/blogs/GridWithFeaturedPost";
+import Testimonial from "@components/testimonials/TwoColumnWithImageAndProfilePictureReview";
+import Footer from "@components/footers/FiveColumnDark";
+import TeamCardGrid from "@components/cards/ProfileThreeColGrid";
+import PartnerSection from "@components/PartnerSection/PartnerSection";
 
 const HighlightedText = tw.span`text-primary-500`;
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
@@ -17,7 +17,10 @@ export default () => {
   return (
     <AnimationRevealPage>
       <Hero />
-      <PartnerSection subheading={'Some of the top National And International Bodies'} heading={'Associated and Recognized by'}/>
+      <PartnerSection
+        subheading={"Some of the top National And International Bodies"}
+        heading={"Associated and Recognized by"}
+      />
       <Testimonial
         heading={
           <>

@@ -1,16 +1,14 @@
-import React from "react";
 import { motion } from "framer-motion";
-import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
+import tw from "twin.macro";
+// eslint-disable-next-line no-unused-vars
+import { css } from "styled-components/macro";
 
-import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
+import useAnimatedNavToggler from "@helpers/useAnimatedNavToggler";
 
-import logo from "../../images/demo/logo.jpeg";
-import Scholarships from "../../images/customers-logo-strip.png"
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
-import Banner from "react-js-banner"
+import logo from "@assets/images/demo/logo.jpeg";
 
 const Header = tw.header`
   flex justify-between items-center
@@ -113,24 +111,35 @@ export default ({
   return (
     <div className="flex flex-col w-full">
       <Header className={className || "header-light"}>
-      <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
-        {logoLink}
-        {links}
-      </DesktopNavLinks>
-
-      <MobileNavLinksContainer css={collapseBreakpointCss.mobileNavLinksContainer}>
-        {logoLink}
-        <MobileNavLinks initial={{ x: "150%", display: "none" }} animate={animation} css={collapseBreakpointCss.mobileNavLinks}>
+        <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
+          {logoLink}
           {links}
-        </MobileNavLinks>
-        <NavToggle onClick={toggleNavbar} className={showNavLinks ? "open" : "closed"}>
-          {showNavLinks ? <CloseIcon tw="w-6 h-6" /> : <MenuIcon tw="w-6 h-6" />}
-        </NavToggle>
-      </MobileNavLinksContainer>
-    </Header>
-    <div className="w-[20%]">
-        <Banner title="Upcoming Scholarship" visibleTime={5000} transitionAppearTime={1} image={Scholarships} />
-    </div>
+        </DesktopNavLinks>
+
+        <MobileNavLinksContainer
+          css={collapseBreakpointCss.mobileNavLinksContainer}
+        >
+          {logoLink}
+          <MobileNavLinks
+            initial={{ x: "150%", display: "none" }}
+            animate={animation}
+            css={collapseBreakpointCss.mobileNavLinks}
+          >
+            {links}
+          </MobileNavLinks>
+          <NavToggle
+            onClick={toggleNavbar}
+            className={showNavLinks ? "open" : "closed"}
+          >
+            {showNavLinks ? (
+              <CloseIcon tw="w-6 h-6" />
+            ) : (
+              <MenuIcon tw="w-6 h-6" />
+            )}
+          </NavToggle>
+        </MobileNavLinksContainer>
+      </Header>
+      <div className="w-[20%]">{/* Banner Here */}</div>
     </div>
   );
 };
