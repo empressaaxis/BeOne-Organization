@@ -75,10 +75,11 @@ export default ({
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/#">Home</NavLink>
-      <NavLink href="/#">About Us</NavLink>
-      <NavLink href="/#">What We Do</NavLink>
-      <NavLink href="/#">News</NavLink>
-      <NavLink href="/#">Contact</NavLink>
+      <NavLink href="/#partners">Partners</NavLink>
+      <NavLink href="/#testimonials">Testimonials</NavLink>
+      <NavLink href="/#features">What We Do</NavLink>
+      <NavLink href="/#blogs">News</NavLink>
+      <NavLink href="/#contact">Contact</NavLink>
     </NavLinks>,
     <NavLinks key={2}>
       <NavLink href="https://react-admin-dashboard-lilac.vercel.app/beOneOrganisation/login" tw="lg:ml-12!">

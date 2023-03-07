@@ -131,7 +131,7 @@ export default ({
   const [textSliderRef, setTextSliderRef] = useState(null);
 
   return (
-    <Container>
+    <Container id="testimonials">
       <Content>
         <HeadingInfo
           tw="text-center lg:hidden"
@@ -154,7 +154,7 @@ export default ({
               >
                 {testimonials.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
-                    <TestimonialsImage imageSrc={testimonial.imageSrc} onClick={onOpen}/>
+                    <TestimonialsImage imageSrc={testimonial.imageSrc} onClick={onOpen} />
 
                     {/* <PlayButtonControlContainer>
                       <PlayButtonControlButton >

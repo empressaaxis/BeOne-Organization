@@ -40,7 +40,7 @@ const CompanyInfo = tw.div``
 const Divider = tw.div`my-8 border-b-2 border-gray-800`
 export default () => {
   return (
-    <Container>
+    <Container id="contact">
       <Content>
         <FiveColumns>
           <CompanyColumn>
