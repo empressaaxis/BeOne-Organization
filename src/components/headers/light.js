@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -10,7 +10,7 @@ import logo from "../../images/demo/logo.jpeg";
 import Scholarships from "../../images/customers-logo-strip.png"
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
-import Banner from "react-js-banner"
+import Banner from 'react-js-banner';
 
 const Header = tw.header`
   flex justify-between items-center
@@ -45,7 +45,7 @@ export const LogoLink = styled(NavLink)`
 
 export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 export const NavToggle = tw.button`
-  lg:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300
+  lg:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300 absolute right-0
 `;
 export const MobileNavLinks = motion(styled.div`
   ${tw`lg:hidden z-10 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 bg-white`}
@@ -86,6 +86,14 @@ export default ({
   ];
 
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
+  const [showBanner, setShowBanner] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowBanner(false);
+    }, 5000);
+  }, []);
+
   const collapseBreakpointCss =
     collapseBreakPointCssMap[collapseBreakpointClass];
 
@@ -116,6 +124,14 @@ export default ({
           </NavToggle>
         </MobileNavLinksContainer>
       </Header>
+      <div className={`flex items-center justify-center py-3 bg-orange-400 w-[90%] mx-auto fixed top-[140px] left-0 right-0 z-50 ${showBanner ? '' : 'hidden'}`}>
+        <img src={Scholarships} alt="" />
+        <span>This is a banner message.</span>
+      </div>
+      {/* <Banner title="Upcoming Scholarship" transitionAppearTime={1} css={banner1Css} /> */}
+      {/* <Banner
+        title="Upcoming Scholarship"
+      /> */}
     </div>
   );
 };
