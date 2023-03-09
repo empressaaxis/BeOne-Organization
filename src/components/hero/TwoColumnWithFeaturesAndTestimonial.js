@@ -91,11 +91,6 @@ export default ({
       <PrimaryLink css={buttonRoundedCss} href="/#">
         Donate
       </PrimaryLink>
-      {/* <NavLink href="/#" tw="lg:ml-12!">
-       <PrimaryLink css={buttonRoundedCss} href="/#">
-        Donate
-      </PrimaryLink>
-      </NavLink> */}
     </NavLinks>,
   ];
   return (
