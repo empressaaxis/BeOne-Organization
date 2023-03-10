@@ -18,7 +18,7 @@ const PostImage = styled.div`
   ${props => css`background-image: url("${props.imageSrc}");`}
   ${tw`h-64 sm:h-80 bg-center bg-cover rounded-t`}
 `;
-const PostText = tw.div`flex-1 px-6 py-8` 
+const PostText = tw.div`flex-1 px-6 py-8`
 const PostTitle = tw.h6`font-bold group-hocus:text-primary-500 transition duration-300 `;
 const PostDescription = tw.p``;
 const AuthorInfo = tw.div`flex`;
@@ -108,7 +108,7 @@ export default ({
   ]
 }) => {
   return (
-    <Container>
+    <Container id="blogs">
       <ContentWithPaddingXl>
         <HeadingContainer>
           {subheading && <Subheading>{subheading}</Subheading>}

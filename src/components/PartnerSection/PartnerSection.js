@@ -14,7 +14,7 @@ const Logo = tw.div`w-20 h-20 border border-black flex items-center`;
 
 export default function PartnerSection({ subheading, heading }) {
   return (
-    <Container>
+    <Container id="partners">
       <Content>
         <ContentHeader>
           <HeadingTitle>{heading}</HeadingTitle>

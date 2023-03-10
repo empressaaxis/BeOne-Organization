@@ -37,13 +37,13 @@ const Feature = tw.li`flex items-center`;
 const FeatureIcon = tw(CheckboxIcon)`w-5 h-5 text-primary-500`;
 const FeatureText = tw.p`ml-2 font-medium text-gray-700`;
 const ImageColumn = tw(Column)`ml-auto lg:mr-0 relative mt-16 lg:mt-0 lg:ml-32`;
-const ImageContainer = tw.div`relative z-40 transform xl:-translate-x-24 xl:-translate-y-16`;
-const Image = tw.img`max-w-full w-96 rounded-t sm:rounded relative z-20`;
+const ImageContainer = tw.div`relative z-40 transform xl:-translate-x-24`;
+const Image = tw.img`max-w-full w-[500px] rounded-t sm:rounded relative z-20 mt-24`;
 const Offsetbackground = tw.div`absolute inset-0 bg-gray-300 rounded xl:-mb-8`;
 const ImageDecoratorBlob = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none z-10 absolute right-0 bottom-0 transform translate-x-10 translate-y-10 h-32 w-32 opacity-25 text-gray-900 fill-current`}
 `;
-const Testimonial = tw.div`max-w-sm rounded-b md:rounded-none relative sm:absolute bottom-0 inset-x-0 z-20 px-8 py-6 sm:px-10 sm:py-8 bg-primary-900 text-gray-400 font-medium transform md:-translate-x-32 text-sm leading-relaxed md:-mr-16 xl:mr-0`;
+const Testimonial = tw.div`max-w-lg rounded-b md:rounded-none relative sm:absolute bottom-0 left-0 right-0 z-20 px-8 py-6 sm:px-10 sm:py-8 bg-primary-900 text-gray-400 font-medium text-center text-sm leading-relaxed`;
 const QuotesLeftIcon = tw(
   QuotesLeftIconBase
 )`w-16 h-16 md:w-12 md:h-12 absolute top-0 left-0 text-gray-100 md:text-red-500 transform translate-x-1 md:-translate-x-1/2 md:-translate-y-5 opacity-10 md:opacity-100`;
@@ -75,26 +75,22 @@ export default ({
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/#">Home</NavLink>
-      <NavLink href="/#">About Us</NavLink>
-      <NavLink href="/#">What We Do</NavLink>
-      <NavLink href="/#">News</NavLink>
-      <NavLink href="/#">Contact</NavLink>
+      <NavLink href="/#partners">Partners</NavLink>
+      <NavLink href="/#testimonials">Testimonials</NavLink>
+      <NavLink href="/#features">What We Do</NavLink>
+      <NavLink href="/#blogs">Blogs</NavLink>
+      <NavLink href="/#contact">Contact</NavLink>
     </NavLinks>,
     <NavLinks key={2}>
+      <PrimaryLink css={buttonRoundedCss} href="/#">
+        Become a Mentor
+      </PrimaryLink>
       <NavLink href="https://react-admin-dashboard-lilac.vercel.app/beOneOrganisation/login" tw="lg:ml-12!">
         Login
       </NavLink>
       <PrimaryLink css={buttonRoundedCss} href="/#">
         Donate
       </PrimaryLink>
-      {/* <PrimaryLink css={buttonRoundedCss} href="/#">
-        Become A Mentor
-      </PrimaryLink> */}
-      {/* <NavLink href="/#" tw="lg:ml-12!">
-       <PrimaryLink css={buttonRoundedCss} href="/#">
-        Donate
-      </PrimaryLink>
-      </NavLink> */}
     </NavLinks>,
   ];
   return (
@@ -127,7 +123,7 @@ export default ({
                 <Image src={imageSrc} />
                 {imageDecoratorBlob && <ImageDecoratorBlob />}
                 <Testimonial>
-                  <QuotesLeftIcon />
+                  {/* <QuotesLeftIcon /> */}
                   <Quote>{testimonial.quote}</Quote>
                   <CustomerName>{testimonial.customerName}</CustomerName>
                   <CustomerCompany>
@@ -135,7 +131,7 @@ export default ({
                   </CustomerCompany>
                 </Testimonial>
               </ImageContainer>
-              <Offsetbackground />
+              {/* <Offsetbackground /> */}
             </ImageColumn>
           </Row>
         </ContentWithVerticalPadding>
